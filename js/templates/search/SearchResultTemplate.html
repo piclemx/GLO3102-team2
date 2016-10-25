@@ -1,0 +1,10 @@
+<a <%if (model.getLinkUrl()) {%> href="#<%=_.escape(model.getLinkUrl())%>" <%}%>>
+<span class="search-result-name"><%=_.escape(model.getResultTitle())%></span>
+</a>
+<%if (model.isUser()) {%>
+<%if (user.isFollowing(model.get('id'))) { %>
+<button class="btn btn-default pull-right btn-search-unfollow" data-id="<%=model.get('id')%>">Unfollow</button>
+<%} else {%>
+<button class="btn btn-default pull-right btn-search-follow" data-id="<%=model.get('id')%>">Follow</button>
+<%}%>
+<%}%>

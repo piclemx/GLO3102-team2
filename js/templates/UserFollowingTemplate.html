@@ -1,0 +1,23 @@
+<div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+        <img src="<%= user.get('gravatar') %>" alt=""/>
+        <div class="caption" align="center">
+            <p><strong>Name: </strong><%= user.get('name') %></p>
+            <p><strong>Email: </strong> <%= user.get('email') %> </p>
+            <a href="#/profile/<%= user.get('id') %>" class="btn btn-primary">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                View Profile
+            </a>
+            <% if (isFollowing) { %>
+            <button class="btn btn-info unfollow" data-id="<%= user.get('id') %>"><span
+                    class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> Unfollow
+            </button>
+            <% } else { %>
+            <button class="btn btn-info follow" data-id="<%= user.get('id') %>">
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                Following
+            </button>
+            <% } %>
+        </div>
+    </div>
+</div>

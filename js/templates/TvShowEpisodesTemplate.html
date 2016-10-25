@@ -1,0 +1,34 @@
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <% _.each(episodes, function(episode) { %>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="heading<%= episode.get('trackId') %>">
+            <h4 class="panel-title">
+                <a href="#collapse<%= episode.get('trackId') %>" class="episodeBox"
+                   data-episodeid="<%= episode.get('trackId') %>">
+                    <%= episode.get('trackName') %>
+                </a>
+            </h4>
+        </div>
+    </div>
+
+    <div id="collapse<%= episode.get('trackId') %>" style="display:none">
+        <h2 class="text-center"><%= episode.get('trackName') %></h2>
+        <div class="row">
+            <div class="col-md-3">
+                <img src="<%= episode.getCover(400) %>" class="img-responsive"
+                     alt="cover tvshow <%= episode.get('collectionName') %> episode <%= episode.get('trackName') %>">
+            </div>
+            <div class="col-md-6">
+                <h3><%= episode.get('collectionName') %></h3>
+                <div><%= episode.getDurationInMinute() %> min</div>
+                <div><%= episode.get('longDescription') %></div>
+            </div>
+            <div class="col-md-3">
+                <h3>Video</h3>
+                <iframe id="previewEpisode<%= episode.get('trackId') %>" class="embed-responsive-item" width="100%"
+                        frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <% }); %>
+</div>

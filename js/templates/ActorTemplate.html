@@ -1,0 +1,23 @@
+<h1><%=actor.attributes.artistName%></h1>
+<hr/>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Photo</h2>
+        <img src="<%=picture%>" class="img-responsive" alt="Chuck Norris"/>
+    </div>
+    <div class="col-md-6">
+        <h2>Information</h2>
+        <p>Genre: <%=actor.attributes.primaryGenreName%></p>
+
+        <a href="<%=actor.attributes.artistLinkUrl%>"
+           class="get-it-on-itunes" target="_blank"></a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Movies</h2>
+        <div class="movies"></div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<h3><%= watchlist ? 'Edit' : 'New' %> Watchlist</h3>
+<hr/>
+<form class="edit-watchlist-form">
+    <label for="name">Watchlist : </label>
+    <input name="name" id="name" type="text" value="<%= watchlist ? watchlist.get('name') : '' %>">
+    <hr/>
+    <button type="submit" class="btn"><%= watchlist ? 'Update' : 'Create' %></button>
+
+    <% if(watchlist) { %>
+    <input type="hidden" name="id" value="<%= watchlist.id %>"/>
+    <button data-task-id="<%= watchlist.id %>" class="btn btn-danger delete">Delete</button>
+    <% }; %>
+</form>

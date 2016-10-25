@@ -1,0 +1,43 @@
+<h1><%= tvshow.get('collectionName') %></h1>
+<hr/>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Cover</h2>
+
+        <img class="img-responsive" src="<%= tvshow.getCover(1000) %>" alt="<%= tvshow.get('collectionName') %> Cover"/>
+    </div>
+    <div class="col-md-6">
+        <h2>Information</h2>
+
+        <p><strong>Genre: </strong><%= tvshow.get('primaryGenreName') %></p>
+        <p><strong>Original Release: </strong><%= tvshow.getReleaseDate() %></p>
+
+        <p>
+            <strong>Description: </strong><br/>
+            <%= tvshow.get('longDescription') %>
+        </p>
+
+        <p>
+            <a href="<%= tvshow.get('artistViewUrl') %>" target="_blank" class="get-it-on-itunes"></a>
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h2>Preview</h2>
+
+        <div class="embed-responsive embed-responsive-4by3">
+            <iframe id="preview" class="embed-responsive-item" width="560" height="315" frameborder="0"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h2>Episodes</h2>
+        <div>
+            <label for="search-episode">Search (title and/or description)</label>
+            <input type="text" id="search-episode" class="form-control" value="">
+        </div>
+        <div id="episodes"></div>
+    </div>
+</div>

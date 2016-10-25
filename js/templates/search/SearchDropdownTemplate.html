@@ -1,0 +1,9 @@
+<div class="search-dropdown-wrapper">
+    <div class="search-dropdown-select">
+        <%_.each(results, function(model) {%>
+        <div class="search-dropdown-option" value="<%=_.escape(model.getResultTitle())%>">
+            <%= _.escape(model.getResultTitle()) %>
+        </div>
+        <% }); %>
+    </div>
+</div>

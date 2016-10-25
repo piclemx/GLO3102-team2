@@ -1,0 +1,47 @@
+<h1>Global Search</h1>
+<div class="row">
+    <div class="col-lg-8  col-lg-offset-2">
+        <form class="input-group search-form">
+            <input type="text" class="form-control search-box" placeholder="Search UMovie">
+            <span class="input-group-btn">
+            <button class="btn btn-default btn-search" type="submit">Search</button>
+            </span>
+        </form>
+        <div class="search-dropdown"></div>
+    </div>
+</div>
+<div class="row text-center">
+    <% _.each(dataTypes, function(dataType) {%>
+    <div class="checkbox-inline">
+        <label>
+            <input id="<%=dataType.getKey()%>-toggle" type="checkbox" checked>
+            <%=dataType.getTitle()%>
+        </label>
+    </div>
+    <% })%>
+</div>
+<div class="row">
+    <h2>Genres</h2>
+    <div class="genres">
+    </div>
+</div>
+
+<div class="row">
+    <h2 class="toShow">Results For: <span id="query-holder"></span></h2>
+    <div class="tabbable tabs-left">
+        <ul class="nav nav-tabs section_titles">
+            <% _.sortBy(dataTypes, function(dataType, i) {%>
+            <li<%if (i === 0) {%> class="active" <%}%>>
+                <a href="#<%=dataType.getKey()%>" data-toggle="tab"><%=dataType.getTitle()%> <span
+                    class="badge">0</span></a>
+            </li>
+            <% })%>
+        </ul>
+        <div class="tab-content section_container">
+            <% _.sortBy(dataTypes, function(dataType, i) {%>
+            <div class="tab-pane fade section <%if (i === 0) {%>active in<%}%>" id="<%=dataType.getKey()%>">
+            </div>
+            <% })%>
+        </div>
+    </div>
+</div>

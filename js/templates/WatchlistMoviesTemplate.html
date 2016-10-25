@@ -1,0 +1,29 @@
+<h2>Watchlists Movies</h2>
+<hr/>
+
+<% if(_.isEmpty(movies)) {  %>
+<p>No movie for this watchlist</p>
+<% } else {
+_.each(movies, function (movie) {%>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span><strong>Movie: </strong><%= movie.trackName %></span>
+    </div>
+    <div class="panel-body">
+        <div class="col-md-4 col-sm-4 col-xs-4" align="left">
+            <img class="img-responsive" src="<%= movie.artworkUrl100 %>"
+                 alt="<%= movie.trackName %> Cover"/>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-4" align="center">
+            <span>
+                <a class="btn btn-primary" href="#/movie/<%= movie.trackId %>">See the movie</a>
+            </span>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-4" align="right">
+            <button class="movie-remove btn btn-danger" data-movie-id="<%= movie.trackId %>">Remove
+            </button>
+        </div>
+    </div>
+</div>
+<br>
+<% }); }%>

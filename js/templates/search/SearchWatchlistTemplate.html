@@ -1,0 +1,6 @@
+<button class="btn btn-default pull-right btn-watchlist">Add to Watchlist</button>
+<select class="btn btn-default pull-right search-movie-watchlists" name="watchlist">
+    <%_.each(watchlists, function(watchlist){%>
+    <option value="<%= watchlist.get('id') %>"><%= watchlist.get('name') %></option>
+    <%});%>
+</select>

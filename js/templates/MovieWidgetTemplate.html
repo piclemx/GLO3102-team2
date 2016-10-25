@@ -1,0 +1,14 @@
+<div class="movie-card col-md-4 col-lg-4 col-sm-6">
+    <div class="caption">
+        <h4 class="text-center"><%=movie.attributes.trackName%></h4>
+        <p>
+            <a href="#/movie/<%=movie.attributes.trackId%>"><img src="<%=movie.getCover(300)%>"
+                                                                 class="img-responsive center-block movie-picture"
+                                                                 alt="<%=movie.attributes.trackName%>"/></a>
+        </p>
+
+        <p><strong>Release Date: </strong><%=movie.getReleaseDate()%></p>
+
+        <a href="<%=video%>" class="fancybox fancybox.iframe">Preview</a>
+    </div>
+</div>

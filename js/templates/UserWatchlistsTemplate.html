@@ -1,0 +1,11 @@
+<div class="col-sm-6 col-md-3">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3><%= watchlist.get('name') %> </h3>
+        </div>
+        <div class="panel-body">
+            <p><strong>Number of movies: </strong> <%= watchlist.attributes.movies.length %></p>
+            <p><a href="#/watchlist/movies/<%= watchlist.attributes.id %>" class="btn btn-default">Show movies</a></p>
+        </div>
+    </div>
+</div>

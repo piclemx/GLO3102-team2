@@ -1,0 +1,39 @@
+<h2>Watchlists</h2>
+<hr/>
+
+<div>
+    <a id="create-watchlist" href="#/watchlist/new" class="btn btn-success">Create Watchlist</a>
+</div>
+<br>
+<div class="panel panel-default">
+    <% _.each(watchlists, function(watchlist) { %>
+    <div class="panel-heading">
+        <span><%= watchlist.get('name') %></span>
+    </div>
+    <div class="panel-body">
+        <% if(watchlist.get('movies').length !== 0) { %>
+        <div class="col-md-4 col-sm-4 col-xs-4">
+            <label>Number of movies : </label>
+            <span><%= watchlist.attributes.movies.length %></span>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-4" align="center">
+            <a href="#/watchlist/movies/<%= watchlist.attributes.id %>" class="btn btn-default">Show movies</a>
+        </div>
+        <% } else { %>
+        <div class="col-md-8 col-sm-8 col-xs-8">
+            <p>No movie in the watchlist.</p>
+        </div>
+        <% } %>
+        <div class="col-md-4 col-sm-4 col-xs-4">
+            <button type="button" class="btn btn-default watchlists-button delete-watchlist" title="Delete watchlist"
+                    aria-label="Left Align" data-id="<%= watchlist.get('id') %>">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+            <a href="#/watchlist/edit/<%= watchlist.attributes.id %>" class="btn btn-default watchlists-button"
+               title="Edit watchlist">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+    <% }); %>
+</div>

@@ -1,0 +1,49 @@
+<nav id="menu-navbar" class="navbar navbar-inverse">
+    <div id="menu-container">
+        <div class="navbar-header">
+            <a id="main-title" class="view-home" href="#">UMovie</a>
+            <button class="navbar-toggle collapsed" data-target="#user-menu" data-toggle="collapse" type="button">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="user-menu" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="col-xs-9 col-sm-7 col-md-5">
+                    <form class="input-group">
+                        <input id="menu-search-bar" class="form-control search-box" placeholder="Search with UMovie"
+                               type="text"/>
+                        <div class="search-dropdown"></div>
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary btn-menu-search">Search</button>
+                        </span>
+                    </form>
+                </li>
+                <li class="user-dropdown-menu col-xs-4 col-sm-2 dropdown">
+                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        Home
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="view-home" href="#/">Home</a></li>
+                        <li><a class="view-watchlists" href="#/watchlists">Watchlists</a></li>
+                    </ul>
+                </li>
+                <li class="user-dropdown-menu col-xs-4 col-sm-2 col-md-offset-1 dropdown">
+                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        <%= user.get('name') %>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/profile">Profile</a></li>
+                        <li><a class="logout" href="#/login">Disconnect</a></li>
+                    </ul>
+                </li>
+                <li class="col-xs-1">
+                    <img class="gravatar" src="<%= user.gravatarUrl() %>"/>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

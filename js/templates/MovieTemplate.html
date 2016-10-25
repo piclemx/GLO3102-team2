@@ -1,0 +1,45 @@
+<h1><%= movie.get('trackName') %></h1>
+<hr/>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Cover</h2>
+
+        <img class="img-responsive" src="<%= movie.getCover(1000) %>" alt="<%= movie.get('trackName') %> Cover"/>
+    </div>
+    <div class="col-md-6">
+        <h2>Information</h2>
+
+        <p><strong>Genre: </strong><%= movie.get('primaryGenreName') %></p>
+        <p><strong>Release Date: </strong><%= movie.getReleaseDate() %></p>
+        <p><strong>Rating: </strong><%= movie.get('contentAdvisoryRating') %></p>
+
+        <p>
+            <strong>Description: </strong>
+            <br/>
+            <%= movie.get('longDescription') %>
+        </p>
+
+        <div>
+            <a href="<%= movie.get('trackViewUrl') %>" class="get-it-on-itunes"></a>
+        </div>
+
+        <div>
+            <form id="add-to-watchlist-form">
+                <button type="submit" class="btn">Add to Watchlist</button>
+                <select name="watchlist" id="watchlist">
+                    <% _.each(watchlists, function(watchlist) { %>
+                    <option value="<%= watchlist.get('id') %>"><%= watchlist.get('name') %></option>
+                    <% }); %>
+                </select>
+            </form>
+        </div>
+    </div>
+</div>
+
+<h2>Preview</h2>
+
+<div class="embed-responsive embed-responsive-4by3">
+    <iframe id="preview" class="embed-responsive-item" width="560" height="315" frameborder="0"
+            allowfullscreen></iframe>
+</div>
